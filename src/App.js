@@ -6,7 +6,12 @@ import VideosList from './components/VidoesList';
 
 class App extends Component {
   state = {
-    videos: []
+    videos: [],
+    selectedVideo: null,
+  }
+
+  onVideSelect = (video) => {
+    console.log(video)
   }
 
   onTermSubmit = async (term) => {
@@ -26,7 +31,7 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />
-        <VideosList videos={this.state.videos}/>
+        <VideosList  onVideoSelect={this.onVideSelect} videos={this.state.videos}/>
       </div>
     );
   }
